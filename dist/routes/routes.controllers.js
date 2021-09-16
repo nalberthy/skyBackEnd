@@ -19,7 +19,7 @@ const middleware = new _routes.default();
 const router = (0, _express.Router)(); // routes public
 
 exports.router = router;
-router.post('/authenticate', _login.authenticate);
+router.post('/login', _login.authenticate);
 router.post('/user/create', _user.userCreate); // middleware
 
 router.use(middleware.checkAuthToken); // routes private
