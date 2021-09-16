@@ -81,7 +81,7 @@
 
 | Parametro | Tipo     | Descrição                      |
 | :-------- | :------- | :----------------------------- |
-|           |          | ** É requerido o Token**       |
+|           |          | **É requerido o Token**       |
 
 #### Buscar usuario:
 
