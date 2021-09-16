@@ -3,6 +3,8 @@ import { Server } from 'http'
 import router from './routes'
 import cors from 'cors'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
 
 class SetupApplication {
   private server?: Server;
@@ -20,7 +22,8 @@ class SetupApplication {
   }
 
   private database (): void {
-    mongoose.connect('mongodb+srv://root:ylYf5cyR94VvUpH1@cluster0.1qzlq.mongodb.net/sky?retryWrites=true&w=majority', {
+    const mongoURI:any = process.env.MONGO_URI
+    mongoose.connect(mongoURI, {
       useUnifiedTopology: true,
       useNewUrlParser: true
     }, () => console.log('Connected to database'))

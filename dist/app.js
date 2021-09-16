@@ -13,7 +13,11 @@ var _cors = _interopRequireDefault(require("cors"));
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
+var _dotenv = _interopRequireDefault(require("dotenv"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_dotenv.default.config();
 
 class SetupApplication {
   constructor(port = 3000, app = (0, _express.default)()) {
@@ -31,7 +35,9 @@ class SetupApplication {
   }
 
   database() {
-    _mongoose.default.connect('mongodb+srv://root:ylYf5cyR94VvUpH1@cluster0.1qzlq.mongodb.net/sky?retryWrites=true&w=majority', {
+    const mongoURI = process.env.MONGO_URI;
+
+    _mongoose.default.connect(mongoURI, {
       useUnifiedTopology: true,
       useNewUrlParser: true
     }, () => console.log('Connected to database'));
