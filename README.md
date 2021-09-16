@@ -5,7 +5,7 @@
 
  Clone o repositório:
 ```bash
-  git clone https://github.com/nalberthyy/skyBackEnd
+  git clone https://github.com/nalberthyy/skyBackEnd.git
 ```
 
  Instalar dependências da aplicação:
