@@ -32,8 +32,9 @@ class SetupApplication {
 
   database() {
     _mongoose.default.connect('mongodb+srv://root:ylYf5cyR94VvUpH1@cluster0.1qzlq.mongodb.net/sky?retryWrites=true&w=majority', {
+      useUnifiedTopology: true,
       useNewUrlParser: true
-    });
+    }, () => console.log('Connected to database'));
   }
 
   routes() {

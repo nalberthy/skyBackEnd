@@ -20,10 +20,10 @@ class SetupApplication {
   }
 
   private database (): void {
-    mongoose.connect('mongodb+srv://root:ylYf5cyR94VvUpH1@cluster0.1qzlq.mongodb.net/sky?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true
-      })
+    mongoose.connect('mongodb+srv://root:ylYf5cyR94VvUpH1@cluster0.1qzlq.mongodb.net/sky?retryWrites=true&w=majority', {
+      useUnifiedTopology: true,
+      useNewUrlParser: true
+    }, () => console.log('Connected to database'))
   }
 
   private routes (): void {
