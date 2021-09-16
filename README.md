@@ -26,9 +26,6 @@
 ```bash
   yarn start
 ```
-    
-## Collections API
-
 
 ## Referencia API
 
