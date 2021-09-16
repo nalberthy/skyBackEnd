@@ -13,7 +13,7 @@
   yarn
 ```
 
- #Executar aplicação
+ Executar aplicação:
   - Ambiente de desenvolvimento:
 ```bash
   yarn dev
