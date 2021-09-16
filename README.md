@@ -18,7 +18,7 @@
 ```bash
   yarn dev
 ```
-  - Compilar para prod:
+  - Compilar para ambiente de produção:
 ```bash
   yarn build
 ```
