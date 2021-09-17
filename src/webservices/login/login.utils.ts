@@ -13,16 +13,16 @@ const authUser = async (req: any, res: any, next: any) => {
   const user:any = await User.findOne({ email }).select('+password')
 
   if (!user) {
-    res.status(400).send({ message: 'User not found' })
+    return res.status(400).send({ message: 'User not found' })
   }
 
   if (!await bcript.compare(password, user.password)) {
-    res.status(400).send({ message: 'Invalid password' })
+    return res.status(400).send({ message: 'Invalid password' })
   }
 
   user.password = undefined
 
-  res.send({
+  return res.send({
     user,
     token: generateToken({ id: user.id })
   })
