@@ -37,10 +37,7 @@ class SetupApplication {
   database() {
     const mongoURI = process.env.MONGO_URI;
 
-    _mongoose.default.connect(mongoURI, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true
-    }, () => console.log('Connected to database'));
+    _mongoose.default.connect(mongoURI, {}, () => console.log('Connected to database'));
   }
 
   routes() {

@@ -33,19 +33,19 @@ const authUser = async (req, res, next) => {
   }).select('+password');
 
   if (!user) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'User not found'
     });
   }
 
   if (!(await _bcrypt.default.compare(password, user.password))) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'Invalid password'
     });
   }
 
   user.password = undefined;
-  res.send({
+  return res.send({
     user,
     token: generateToken({
       id: user.id

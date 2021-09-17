@@ -18,14 +18,14 @@ const getUser = async (req, res, next) => {
     if (!id) {
       const users = await _User.default.find(id);
       users.password = undefined;
-      res.json(users);
+      return res.json(users);
     } else {
       const user = await _User.default.findById(req.params.id);
       user.password = undefined;
-      res.json(user);
+      return res.json(user);
     }
   } catch (error) {
-    res.status(400).send({
+    return res.status(400).send({
       message: error.message
     });
   }
@@ -42,12 +42,12 @@ const createUser = async (req, res, next) => {
     if (await _User.default.findOne({
       email
     })) {
-      res.status(400).send({
+      return res.status(400).send({
         message: 'User already exists'
       });
     } else {
       const user = await _User.default.create(req.body);
-      res.json({
+      return res.json({
         user,
         token: (0, _login.generateToken)({
           id: user.id
@@ -55,7 +55,7 @@ const createUser = async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.status(400).send({
+    return res.status(400).send({
       message: 'Registration failed',
       error: error.message
     });
