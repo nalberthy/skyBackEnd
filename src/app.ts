@@ -7,10 +7,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 class SetupApplication {
-  private server?: Server;
-  private portServer:number;
-  constructor (private port = 3000, public app = express()) {
-    this.portServer = this.port
+  private server?: Server
+  constructor (private port = process.env.PORT || 3000, public app = express()) {
     this.middlewares()
     this.database()
     this.routes()
@@ -31,8 +29,8 @@ class SetupApplication {
   }
 
   public start (): void {
-    this.server = this.app.listen(this.portServer, () => {
-      console.log(`Server running on port ${this.portServer}`)
+    this.server = this.app.listen(this.port, () => {
+      console.log(`Server running on port ${this.port}`)
     })
   }
 }
