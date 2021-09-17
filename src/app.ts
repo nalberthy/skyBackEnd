@@ -24,8 +24,10 @@ class SetupApplication {
   private database (): void {
     const mongoURI:any = process.env.MONGO_URI
     mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
       useUnifiedTopology: true,
-      useNewUrlParser: true
+      useFindAndModify: false,
+      useCreateIndex: true
     }, () => console.log('Connected to database'))
   }
 
